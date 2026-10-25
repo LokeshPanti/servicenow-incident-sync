@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="enforce_dot_walk_cross_scope_access=true" db_object_id="27706a03830c5b102b26c6a6feaad3bd" label="Sync Log" max_length="40" name="x_1611922_sync_log" type="collection">
+        <element label="Payload" max_length="4000" name="payload" type="string"/>
+        <element choice="1" label="Status" max_length="40" name="status" type="choice">
+            <choice/>
+        </element>
+        <element label="Response" max_length="4000" name="response" type="string"/>
+        <element default="0" label="Attempts" max_length="40" name="attempts" type="integer"/>
+        <element label="Incident" max_length="32" name="incident" reference="incident" type="reference"/>
+        <element label="HTTP status" max_length="40" name="http_status" type="integer"/>
+        <index name="index">
+            <element name="incident"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1611922_sync.IncidentSyncUtil</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>IncidentSyncUtil</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var IncidentSyncUtil = Class.create();
+IncidentSyncUtil.prototype = {
+    STAGING_TABLE: 'x_1611922_sync_inc_stage',
+    LOG_TABLE: 'x_1611922_sync_log',
+
+    initialize: function () {
+        this.role = gs.getProperty('x_1611922_sync.instance_role');        // customer | vendor
+        this.remoteUrl = gs.getProperty('x_1611922_sync.remote_url');
+        this.authProfile = gs.getProperty('x_1611922_sync.auth_profile');
+    },
+
+    // Called from the business rule: is this record in scope and did a synced field change?
+    shouldSync: function (inc) {
+        var inScope = this.role == 'customer'
+            ? inc.assignment_group.getDisplayValue() == 'Vendor Support'
+            : !inc.correlation_id.nil();
+        if (!inScope) return false;
+        var fields = ['assignment_group', 'short_description', 'description', 'impact',
+                      'urgency', 'state', 'close_notes', 'work_notes'];
+        for (var i = 0; i < fields.length; i++) {
+            if (inc[fields[i]].changes()) return true;
+        }
+        return false;
+    },
+
+    // Keys must match the staging table's column names
+    buildPayload: function (inc) {
+        return {
+            source_id: inc.getUniqueValue(),
+            source_number: inc.getValue('number'),
+            source_instance: this.role,
+            short_description: inc.getValue('short_description'),
+            description: inc.getValue('description'),
+            impact: inc.getValue('impact'),
+            urgency: inc.getValue('urgency'),
+            state: inc.getValue('state'),
+            close_code: inc.getValue('close_code'),
+            close_notes: inc.getValue('close_notes'),
+            work_notes: inc.work_notes.getJournalEntry(1)
+        };
+    },
+
+    // Sends one incident; pass an existing log record to retry
+    send: function (inc, log) {
+        if (!log) {
+            log = new GlideRecord(this.LOG_TABLE);
+            log.initialize();
+            log.setValue('incident', inc.getUniqueValue());
+            log.setValue('attempts', 0);
+        }
+        var body = JSON.stringify(this.buildPayload(inc));
+        log.setValue('payload', body);
+        log.setValue('attempts', (parseInt(log.getValue('attempts'), 10) || 0) + 1);
+        try {
+            var rm = new sn_ws.RESTMessageV2('Remote Instance', 'post_incident');
+            rm.setEndpoint(this.remoteUrl + '/api/now/import/' + this.STAGING_TABLE);
+            rm.setAuthenticationProfile('basic', this.authProfile);
+            rm.setRequestBody(body);
+            var resp = rm.execute();
+            var code = resp.getStatusCode();
+            log.setValue('http_status', code);
+            log.setValue('response', String(resp.getBody()).substring(0, 4000));
+            var result = (JSON.parse(resp.getBody()).result || [])[0] || {};
+            if (code == 201 && result.status != 'error') {
+                log.setValue('status', 'success');
+                this._storeRemoteId(inc, result.sys_id);
+            } else {
+                log.setValue('status', 'failed');
+            }
+        } catch (e) {
+            log.setValue('status', 'failed');
+            log.setValue('response', String(e));
+        }
+        if (log.isNewRecord()) log.insert(); else log.update();
+    },
+
+    // First successful send: remember the remote sys_id without re-triggering rules
+    _storeRemoteId: function (inc, remoteId) {
+        if (!remoteId || inc.getValue('correlation_id')) return;
+        var gr = new GlideRecord('incident');
+        if (gr.get(inc.getUniqueValue())) {
+            gr.setValue('correlation_id', remoteId);
+            gr.setWorkflow(false);
+            gr.update();
+        }
+    },
+
+    // GlideAggregate: sync results by status over the last N days (monitoring)
+    stats: function (days) {
+        var since = new GlideDateTime();
+        since.addDaysUTC(-(days || 7));
+        var ga = new GlideAggregate(this.LOG_TABLE);
+        ga.addQuery('sys_created_on', '>=', since);
+        ga.addAggregate('COUNT');
+        ga.groupBy('status');
+        ga.query();
+        var out = {};
+        while (ga.next()) out[ga.getValue('status')] = parseInt(ga.getAggregate('COUNT'), 10);
+        return out;
+    },
+
+    type: 'IncidentSyncUtil'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-25 02:34:34</sys_created_on>
+        <sys_id>83d14a8383085b102b26c6a6feaad38c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>IncidentSyncUtil</sys_name>
+        <sys_package display_value="Incident Sync" source="x_1611922_sync">aa1426be830cd7102b26c6a6feaad310</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Incident Sync">aa1426be830cd7102b26c6a6feaad310</sys_scope>
+        <sys_update_name>sys_script_include_83d14a8383085b102b26c6a6feaad38c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-25 02:34:34</sys_updated_on>
+    </sys_script_include>
+</record_update>

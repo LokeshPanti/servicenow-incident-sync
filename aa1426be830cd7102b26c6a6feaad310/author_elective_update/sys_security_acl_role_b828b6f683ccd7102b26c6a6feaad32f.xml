@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="DELETE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-24 11:51:15</sys_created_on>
+        <sys_id>b828b6f683ccd7102b26c6a6feaad32f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1611922_sync_4000.x_1611922_incident.user</sys_name>
+        <sys_package display_value="Incident Sync" source="x_1611922_sync">aa1426be830cd7102b26c6a6feaad310</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Sync">aa1426be830cd7102b26c6a6feaad310</sys_scope>
+        <sys_security_acl display_value="x_1611922_sync_4000">3428b6f683ccd7102b26c6a6feaad329</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_b828b6f683ccd7102b26c6a6feaad32f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-24 11:51:15</sys_updated_on>
+        <sys_user_role display_value="x_1611922_incident.user" name="x_1611922_incident.user">f834a6be830cd7102b26c6a6feaad3f1</sys_user_role>
+    </sys_security_acl_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Incident Sync">aa1426be830cd7102b26c6a6feaad310</application>
+        <file_path/>
+        <instance_id>a018166f3b260790a80ce0bf55e45ad4</instance_id>
+        <instance_name>dev443555</instance_name>
+        <name>sys_security_acl_role_b828b6f683ccd7102b26c6a6feaad32f</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-10-24 11:51:15</sys_created_on><sys_id>b828b6f683ccd7102b26c6a6feaad32f</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_1611922_sync_4000.x_1611922_incident.user</sys_name><sys_package display_value="Incident Sync" source="x_1611922_sync">aa1426be830cd7102b26c6a6feaad310</sys_package><sys_policy/><sys_scope display_value="Incident Sync">aa1426be830cd7102b26c6a6feaad310</sys_scope><sys_security_acl display_value="x_1611922_sync_4000">3428b6f683ccd7102b26c6a6feaad329</sys_security_acl><sys_update_name>sys_security_acl_role_b828b6f683ccd7102b26c6a6feaad32f</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-10-24 11:51:15</sys_updated_on><sys_user_role display_value="x_1611922_incident.user" name="x_1611922_incident.user">f834a6be830cd7102b26c6a6feaad3f1</sys_user_role></sys_security_acl_role></record_update>]]></payload>
+        <payload_hash>804940669</payload_hash>
+        <record_name>x_1611922_sync_4000.x_1611922_incident.user</record_name>
+        <reverted_from/>
+        <source>7034e6be830cd7102b26c6a6feaad302</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-24 11:51:15</sys_created_on>
+        <sys_id>f028b6f683ccd7102b26c6a6feaad339</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1a16dc034d60000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-24 11:51:15</sys_updated_on>
+        <type>Access Roles</type>
+        <update_guid>b028b6f62cccd71029896ab2f4113838</update_guid>
+        <update_guid_history>b028b6f62cccd71029896ab2f4113838:804940669</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="x_1611922_sync_4000.x_1611922_incident.user">1c30aacf83c85b102b26c6a6feaad37d</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-25 04:45:06</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl_role">sys_security_acl_role</sys_db_object>
+        <sys_id>13e7ec26b7284ea4b8450d02ab3d7989</sys_id>
+        <sys_metadata>b828b6f683ccd7102b26c6a6feaad32f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_1611922_sync_4000.x_1611922_incident.user</sys_name>
+        <sys_package display_value="Incident Sync" source="x_1611922_sync">aa1426be830cd7102b26c6a6feaad310</sys_package>
+        <sys_parent display_value="">3428b6f683ccd7102b26c6a6feaad329</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Incident Sync">aa1426be830cd7102b26c6a6feaad310</sys_scope>
+        <sys_scope_delete display_value="">42f1f694b2d94df382242c60ccc4f561</sys_scope_delete>
+        <sys_update_name>sys_security_acl_role_b828b6f683ccd7102b26c6a6feaad32f</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_role_b828b6f683ccd7102b26c6a6feaad32f">f028b6f683ccd7102b26c6a6feaad339</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-25 04:45:06</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

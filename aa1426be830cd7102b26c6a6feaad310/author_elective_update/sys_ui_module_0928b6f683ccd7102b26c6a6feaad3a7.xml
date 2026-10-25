@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_module">
+    <sys_ui_module action="DELETE">
+        <active>true</active>
+        <application display_value="Incident Sync">2856b2f283ccd7102b26c6a6feaad3ff</application>
+        <filter/>
+        <name>Sync Logs</name>
+        <order/>
+        <path/>
+        <path_relative_to_root>false</path_relative_to_root>
+        <roles>x_1611922_incident.user</roles>
+        <sys_class_name>sys_ui_module</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-24 11:51:16</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>0928b6f683ccd7102b26c6a6feaad3a7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Sync Logs</sys_name>
+        <sys_package display_value="Incident Sync" source="x_1611922_sync">aa1426be830cd7102b26c6a6feaad310</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Sync">aa1426be830cd7102b26c6a6feaad310</sys_scope>
+        <sys_update_name>sys_ui_module_0928b6f683ccd7102b26c6a6feaad3a7</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-24 11:51:16</sys_updated_on>
+        <table>x_1611922_sync_log</table>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+    </sys_ui_module>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Incident Sync">aa1426be830cd7102b26c6a6feaad310</application>
+        <file_path/>
+        <instance_id>a018166f3b260790a80ce0bf55e45ad4</instance_id>
+        <instance_name>dev443555</instance_name>
+        <name>sys_ui_module_0928b6f683ccd7102b26c6a6feaad3a7</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_module"><sys_ui_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="Incident Sync">2856b2f283ccd7102b26c6a6feaad3ff</application><filter/><name>Sync Logs</name><order/><path/><path_relative_to_root>false</path_relative_to_root><roles>x_1611922_incident.user</roles><sys_class_name>sys_ui_module</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-10-24 11:51:16</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>0928b6f683ccd7102b26c6a6feaad3a7</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Sync Logs</sys_name><sys_package display_value="Incident Sync" source="x_1611922_sync">aa1426be830cd7102b26c6a6feaad310</sys_package><sys_policy/><sys_scope display_value="Incident Sync">aa1426be830cd7102b26c6a6feaad310</sys_scope><sys_update_name>sys_ui_module_0928b6f683ccd7102b26c6a6feaad3a7</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-10-24 11:51:16</sys_updated_on><table>x_1611922_sync_log</table><uncancelable>false</uncancelable><view_name/></sys_ui_module></record_update>]]></payload>
+        <payload_hash>1464335415</payload_hash>
+        <record_name>Sync Logs</record_name>
+        <reverted_from/>
+        <source>7034e6be830cd7102b26c6a6feaad302</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-24 11:51:16</sys_created_on>
+        <sys_id>8528b6f683ccd7102b26c6a6feaad3b7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1a16dc038760000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-24 11:51:16</sys_updated_on>
+        <type>Module</type>
+        <update_guid>4528b6f6e0ccd7100b50d3cf1e1bdeb6</update_guid>
+        <update_guid_history>4528b6f6e0ccd7100b50d3cf1e1bdeb6:1464335415</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-25 04:46:18</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_module">sys_ui_module</sys_db_object>
+        <sys_id>16d2999044804e00836c126b628e0400</sys_id>
+        <sys_metadata>0928b6f683ccd7102b26c6a6feaad3a7</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Sync Logs</sys_name>
+        <sys_package display_value="Incident Sync" source="x_1611922_sync">aa1426be830cd7102b26c6a6feaad310</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Incident Sync">aa1426be830cd7102b26c6a6feaad310</sys_scope>
+        <sys_scope_delete display_value="">42f1f694b2d94df382242c60ccc4f561</sys_scope_delete>
+        <sys_update_name>sys_ui_module_0928b6f683ccd7102b26c6a6feaad3a7</sys_update_name>
+        <sys_update_version display_value="sys_ui_module_0928b6f683ccd7102b26c6a6feaad3a7">8528b6f683ccd7102b26c6a6feaad3b7</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-25 04:46:18</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

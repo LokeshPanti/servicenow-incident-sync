@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>true</advanced>
+        <business_calendar/>
+        <condition/>
+        <conditional>false</conditional>
+        <entered_run_end/>
+        <entered_run_start/>
+        <entered_time>1970-01-01 00:00:00</entered_time>
+        <max_drift/>
+        <name>Retry failed syncs</name>
+        <offset/>
+        <offset_type>0</offset_type>
+        <repeat_every/>
+        <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_daysofweek/>
+        <run_end/>
+        <run_month>1</run_month>
+        <run_period>1970-01-01 00:15:00</run_period>
+        <run_start>2026-10-25 05:32:05</run_start>
+        <run_time>1970-01-01 08:00:00</run_time>
+        <run_type>periodically</run_type>
+        <run_weekinmonth>1</run_weekinmonth>
+        <script><![CDATA[var log = new GlideRecord('x_1611922_sync_log');
+log.addQuery('status', 'failed');
+log.addQuery('attempts', '<', 3);
+log.query();
+var util = new IncidentSyncUtil();
+var retried = 0;
+while (log.next()) {
+    var inc = log.incident.getRefRecord();
+    if (inc.isValidRecord()) {
+        util.send(inc, log);
+        retried++;
+    }
+}
+gs.info('Retry failed syncs: ' + retried + ' retried');]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-25 05:34:03</sys_created_on>
+        <sys_id>10faea47834c5b102b26c6a6feaad3ad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Retry failed syncs</sys_name>
+        <sys_package display_value="Incident Sync" source="x_1611922_sync">aa1426be830cd7102b26c6a6feaad310</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Incident Sync">aa1426be830cd7102b26c6a6feaad310</sys_scope>
+        <sys_update_name>sysauto_script_10faea47834c5b102b26c6a6feaad3ad</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-25 05:34:03</sys_updated_on>
+        <time_zone/>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>
